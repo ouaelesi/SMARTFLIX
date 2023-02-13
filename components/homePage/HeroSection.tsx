@@ -2,11 +2,13 @@ import Image from "next/image";
 const HeroSection = () => {
   return (
     <div className="w-full relative">
-      <img
+      <Image
         src="/images/homeBg.png"
         alt="home background"
         className="w-full absolute"
-      ></img>
+        width={1000}
+        height="1000"
+      />
       <div className="relative xl:px-28 lg:px-10 md:px-10 md:pt-64 pt-40  px-5">
         <div className="xl:text-5xl lg:text-5xl text-2xl md:text-4xl font-bold mb-4">
           Unlimited Movies, <br/> TV Shows, and More
