@@ -3,7 +3,7 @@ const HeroSection = () => {
   return (
     <div className="w-full relative">
       <img
-        src="/images/HomeBg.png"
+        src="/images/homeBg.png"
         alt="home background"
         className="w-full absolute"
       ></img>
