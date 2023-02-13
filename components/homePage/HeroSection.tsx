@@ -1,9 +1,10 @@
 import Image from "next/image";
+import largeBg from '../../public/images/homeBg.png' ; 
 const HeroSection = () => {
   return (
     <div className="w-full relative">
       <img
-        src="/images/homeBg.png"
+        src={largeBg}
         alt="home background"
         className="w-full absolute"
       ></img>
