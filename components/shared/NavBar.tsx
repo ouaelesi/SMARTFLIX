@@ -4,9 +4,9 @@ import Link from "next/link";
 const NavBar = () => {
   const [activePage, setActivePage] = useState(0);
   const pages = ["Home", "Movies", "Series", "About"];
-  const [menueActive, setActive] = useState(true);
+  const [menueActive, setActive] = useState(false);
   return (
-    <div className="absolute w-full">
+    <div className="absolute w-full z-50">
       {/* Large screen menu  */}
       <div className="md:flex justify-between xl:px-28 lg:px-10 md:px-10 py-10 hidden ">
         <div>
