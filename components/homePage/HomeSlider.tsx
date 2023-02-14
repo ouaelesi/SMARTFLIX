@@ -13,7 +13,7 @@ const HomeSlider = () => {
   return (
     <div className="ml-5">
       <Swiper
-         slidesPerView={2}
+        slidesPerView={2}
         spaceBetween={20}
         pagination={{
           clickable: true,
@@ -23,15 +23,21 @@ const HomeSlider = () => {
           0: {
             slidesPerView: 1.7,
           },
-          576: {
+          400: {
             slidesPerView: 2.5,
+          },
+          576: {
+            slidesPerView: 3.5,
           },
           // when window width is >= 768px
           768: {
             slidesPerView: 4.5,
           },
-          1200: {
+          900: {
             slidesPerView: 5.5,
+          },
+          1200: {
+            slidesPerView: 6.5,
           },
           1500: {
             slidesPerView: 7.5,
