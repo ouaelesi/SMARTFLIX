@@ -4,6 +4,8 @@ import { Inter } from '@next/font/google'
 import NavBar from '@/components/shared/NavBar'
 import HeroSection from '@/components/homePage/HeroSection'
 import StepsSection from '@/components/homePage/StepsSection'
+import RatingSwiper from '@/components/homePage/RatingSwiper'
+import Footer from '@/components/shared/Footer'
 
 export default function Home() {
   return (
@@ -18,6 +20,8 @@ export default function Home() {
           <NavBar/>
           <HeroSection/>
           <StepsSection/>
+          <RatingSwiper/>
+          <Footer/>
       </main>
     </>
   )

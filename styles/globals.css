@@ -22,3 +22,13 @@
 .movieCard:hover .movieCardDescription{
   display: block;
 }
+.dragBar{
+  background: linear-gradient(90deg, red, rgb(255, 0, 217) , blue,rgb(0, 255, 0));;
+}
+
+
+
+
+
+
+
