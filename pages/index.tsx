@@ -16,6 +16,8 @@ export default function Home() {
       <main className=''>
           <NavBar/>
           <HeroSection/>
+          description : Arthur Fleck, un comédien affligé par des troubles mentaux, se voit mis de côté par la société. Samorce ensuite une descente aux , 
+    rating : 5 , 
       </main>
     </>
   )

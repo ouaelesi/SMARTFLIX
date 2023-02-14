@@ -13,3 +13,12 @@
     @apply bg-primColor px-7 py-2 rounded-md text-darkBg; 
   }
 }
+.text-2xs{
+  font-size: 9px;
+}
+.movieCardDescription{
+  display: none;
+}
+.movieCard:hover .movieCardDescription{
+  display: block;
+}
