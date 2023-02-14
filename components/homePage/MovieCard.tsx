@@ -34,7 +34,7 @@ const MovieCard: React.FC<props> = ({ movie }) => {
           </div>
         </div>
       </div>
-      <div>{movie.name}</div>
+      <div className="text-sm mt-2">{movie.name} {movie.year}</div>
     </div>
   );
 };

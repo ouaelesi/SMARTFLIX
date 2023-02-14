@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import NavBar from '@/components/shared/NavBar'
 import HeroSection from '@/components/homePage/HeroSection'
+import StepsSection from '@/components/homePage/StepsSection'
 
 export default function Home() {
   return (
@@ -16,8 +17,7 @@ export default function Home() {
       <main className=''>
           <NavBar/>
           <HeroSection/>
-          description : Arthur Fleck, un comédien affligé par des troubles mentaux, se voit mis de côté par la société. Samorce ensuite une descente aux , 
-    rating : 5 , 
+          <StepsSection/>
       </main>
     </>
   )
