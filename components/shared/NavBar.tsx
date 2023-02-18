@@ -3,7 +3,24 @@ import { useState } from "react";
 import Link from "next/link";
 const NavBar = () => {
   const [activePage, setActivePage] = useState(0);
-  const pages = ["Home", "Movies", "Series", "About"];
+  const pages = [
+    {
+      name: "Home",
+      href: "/",
+    },
+    {
+      name: "Movies",
+      href: "/movies",
+    },
+    {
+      name: "Series",
+      href: "/series",
+    },
+    {
+      name: "Avout",
+      href: "/about",
+    },
+  ];
   const [menueActive, setActive] = useState(false);
   return (
     <div className="absolute w-full z-50">
@@ -19,23 +36,26 @@ const NavBar = () => {
         </div>
         <div className="flex">
           {pages.map((elem, key) => (
-            <div
+            <Link
+              href={elem.href}
               key={key}
               className={`xl:ml-20 lg:ml-18 md:ml-10 pt-2 ${
                 activePage == key ? "text-primColor font-semibold" : ""
               }`}
               onClick={() => setActivePage(key)}
             >
-              {elem}
+              {elem.name}
               {activePage == key ? (
                 <div className="py-1 w-fit px-1 mx-auto  bg-primColor rounded-lg"></div>
               ) : (
                 <></>
               )}
-            </div>
+            </Link>
           ))}
           <div className="ml-20 ">
-            <button className="btn-yellow"> Sign in</button>
+            <Link href="/singup">
+              <button className="btn-yellow">Sign Up</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -56,30 +76,32 @@ const NavBar = () => {
             width={35}
             height="30"
             alt="ham menue icon"
-            onClick={()=>setActive(!menueActive)}
+            onClick={() => setActive(!menueActive)}
           ></Image>
         </div>
       </div>
       {menueActive ? (
         <div className="block md:hidden">
           {pages.map((elem, key) => (
-            <div
+            <Link
+              href={elem.href}
               key={key}
               className={`w-fit mx-auto pt-2 ${
                 activePage == key ? "text-primColor font-semibold" : ""
               }`}
               onClick={() => setActivePage(key)}
             >
-              {elem}
+              {elem.name}
               {activePage == key ? (
                 <div className="py-1 w-fit px-1 mx-auto  bg-primColor rounded-lg"></div>
               ) : (
                 <></>
               )}
-            </div>
+            </Link>
           ))}
           <div className="mx-auto mt-5 w-fit block text-xs">
-            <button className="btn-yellow"> Sign in</button>
+            <Link href='/signup'>   <button className="btn-yellow"> Sign Up</button></Link>
+         
           </div>
         </div>
       ) : (

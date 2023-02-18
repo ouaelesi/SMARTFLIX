@@ -38,7 +38,7 @@ const SignInForm = () => {
             <input className="bg-transparent outline-none" placeholder="Password"/>
             <FontAwesomeIcon icon={faLock} width="40" />
           </div>
-          <div className="text-xs text-right">dont have an accont? <Link href="/singup" className="text-primColor underline">Sign In</Link></div>
+          <div className="text-xs text-right">dont have an accont? <Link href="/login" className="text-primColor underline">Sign In</Link></div>
           <div className="flex justify-between  py-1  mt-8">
            <button className="btn-yellow w-full font-semibold"> Sign Up</button>
           </div>
