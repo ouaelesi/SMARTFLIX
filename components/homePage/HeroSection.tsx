@@ -21,8 +21,8 @@ const HeroSection = () => {
         <div className="xl:text-5xl lg:text-5xl text-2xl md:text-4xl font-bold mb-4">
           Unlimited Movies, <br/> TV Shows, and More
         </div>
-        <div className="md:w-1/3 w-10/12 my-4 text-xs md:text-sm">
-          Find the greatest movies, series and TV Shows here on SMARTFLIX , you can add here some text to explain the website
+        <div className="md:w-1/2 w-10/12 my-4 text-xs md:text-sm">
+          Find the greatest movies, series and TV Shows here on EXAVIEW ,  Create your list and enjoy rating movies and sharing your preferences with your <br/> friends
         </div>
         <button className="btn-yellow font-semibold text-xs md:text-sm">Get Started</button>
       </div>

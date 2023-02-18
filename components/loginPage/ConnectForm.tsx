@@ -11,7 +11,7 @@ const ConnectForm = () => {
         <div className="flex px-3 justify-between bg-black rounded-md py-3 GoogleLogBtn cursor-pointer hover:bg-opacity-70 ">
           <div>Log in with Google</div>
           <div>
-            <FontAwesomeIcon icon={faGoogle} width="40" />
+            <FontAwesomeIcon icon={faGoogle} width="23" />
           </div>
         </div>
       </div>
@@ -28,11 +28,11 @@ const ConnectForm = () => {
      
         <div className="flex justify-between border-b  border-gray-400 py-1  my-4">
           <input className="bg-transparent outline-none" placeholder="Email"/>
-          <FontAwesomeIcon icon={faEnvelope} width="40" />
+          <FontAwesomeIcon icon={faEnvelope} width="20" />
         </div>
         <div className="flex justify-between border-b  border-gray-400 py-1  my-4">
           <input className="bg-transparent outline-none" placeholder="Password"/>
-          <FontAwesomeIcon icon={faLock} width="40" />
+          <FontAwesomeIcon icon={faLock} width="20" />
         </div>
         <div className="text-xs text-right">dont have an accont? <Link href="/singup" className="text-primColor underline">Sign In</Link></div>
         <div className="flex justify-between  py-1  mt-8">
