@@ -12,6 +12,9 @@
   .btn-yellow{
     @apply bg-primColor px-7 py-2 rounded-md text-darkBg; 
   }
+  .btn-border-yellow{
+    @apply border-2 border-primColor text-primColor px-7 py-2 rounded-md ; 
+  }
 }
 .text-2xs{
   font-size: 9px;

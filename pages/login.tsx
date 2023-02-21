@@ -6,7 +6,6 @@ import NavBar from "@/components/shared/NavBar";
 const login = () => {
     return (
         <div>
-            <NavBar/>
            <FormContainer/>
         </div>
     );

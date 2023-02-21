@@ -4,7 +4,6 @@ import Image from "next/image";
 const about = () => {
   return (
     <div>
-      <NavBar />
       <div className="w-full relative h-screen overflow-y-hidden">
         <Image
           src="/images/aboutBg.jpg"

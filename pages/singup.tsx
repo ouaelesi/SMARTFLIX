@@ -5,7 +5,6 @@ import React from 'react';
 const singup = () => {
     return (
         <div>
-            <NavBar/>
             <FormContainer2/>
         </div>
     );
