@@ -20,7 +20,7 @@ const about = () => {
           height="1000"
         />
         <div className="bg-gradient-to-r from-black to-transparent  relative w-full h-full">
-        <div className="md:pt-64 xl:px-32 lg:px-16 md:px-10 pt-40 px-5 bg-gradient-to-br w-full h-full  from-black via-[rgba(0,0,0,.6)] to-transparent relative ">
+        <div className="md:pt-64 xl:px-32 lg:px-16 md:px-10 pt-52 px-5 bg-gradient-to-br w-full h-full  from-black via-[rgba(0,0,0,.6)] to-transparent relative ">
           <div className="md:w-1/2">
             <p className="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-bold mb-5 uppercase">About ExaView</p>
             <p className="opacity-90 text-xs md:text-sm">

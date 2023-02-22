@@ -17,7 +17,7 @@ const NavBar = () => {
       href: "/series",
     },
     {
-      name: "Avout",
+      name: "About",
       href: "/about",
     },
   ];
@@ -61,7 +61,11 @@ const NavBar = () => {
       </div>
 
       {/* Phone menue */}
-      <div className="md:hidden justify-between px-5 py-5 flex ">
+      <div
+        className={`md:hidden justify-between px-5 py-5 flex ${
+          menueActive ? "bg-[rgba(0,0,0,.5)]" : ""
+        }`}
+      >
         <div>
           <Image
             src="/logos/phonelogo.png"
@@ -81,15 +85,18 @@ const NavBar = () => {
         </div>
       </div>
       {menueActive ? (
-        <div className="block md:hidden">
+        <div className="block md:hidden bg-[rgba(0,0,0,.5)] pb-4 downMenu">
           {pages.map((elem, key) => (
             <Link
               href={elem.href}
               key={key}
-              className={`w-fit mx-auto pt-2 ${
+              className={`w-fit mx-auto pt-2 block ${
                 activePage == key ? "text-primColor font-semibold" : ""
               }`}
-              onClick={() => setActivePage(key)}
+              onClick={() => {
+                setActivePage(key);
+                setActive(false);
+              }}
             >
               {elem.name}
               {activePage == key ? (
@@ -100,8 +107,10 @@ const NavBar = () => {
             </Link>
           ))}
           <div className="mx-auto mt-5 w-fit block text-xs">
-            <Link href='/signup'>   <button className="btn-yellow"> Sign Up</button></Link>
-         
+            <Link href="/signup">
+              {" "}
+              <button className="btn-yellow"> Sign Up</button>
+            </Link>
           </div>
         </div>
       ) : (

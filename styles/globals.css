@@ -9,40 +9,69 @@
   body {
     @apply bg-darkBg text-white;
   }
-  .btn-yellow{
-    @apply bg-primColor px-7 py-2 rounded-md text-darkBg; 
+  .btn-yellow {
+    @apply bg-primColor px-7 py-2 rounded-md text-darkBg;
   }
-  .btn-border-yellow{
-    @apply border-2 border-primColor text-primColor px-7 py-2 rounded-md ; 
+  .btn-border-yellow {
+    @apply border-2 border-primColor text-primColor px-7 py-2 rounded-md  cursor-pointer hover:bg-yellow-300  hover:text-black;
   }
 }
-.text-2xs{
+.text-2xs {
   font-size: 9px;
 }
-.movieCardDescription{
+.movieCardDescription {
   display: none;
 }
-.movieCard:hover .movieCardDescription{
+.movieCard:hover .movieCardDescription {
   display: block;
 }
-.dragBar{
-  background: linear-gradient(90deg, red, rgb(255, 0, 217) , blue,rgb(0, 255, 0));
+.dragBar {
+  background: linear-gradient(
+    90deg,
+    red,
+    rgb(255, 0, 217),
+    blue,
+    rgb(0, 255, 0)
+  );
 }
-.googleLogin{
+.googleLogin {
   padding: 1px;
-  background: linear-gradient(45deg, rgba(255, 136, 0, 0.8),rgba(255, 208, 0, 0.7) ,  rgba(251, 255, 0,0.5));
+  background: linear-gradient(
+    45deg,
+    rgba(255, 136, 0, 0.8),
+    rgba(255, 208, 0, 0.7),
+    rgba(251, 255, 0, 0.5)
+  );
 }
-.GoogleLogBtn:hover .googleLogin{
-  background: linear-gradient(45deg, rgba(21, 0, 255, 0.8),rgba(255, 208, 0, 0.7) ,  rgba(251, 255, 0,0.5));
+.GoogleLogBtn:hover .googleLogin {
+  background: linear-gradient(
+    45deg,
+    rgba(21, 0, 255, 0.8),
+    rgba(255, 208, 0, 0.7),
+    rgba(251, 255, 0, 0.5)
+  );
 }
-.formSection{
-  background: linear-gradient(30deg, rgba(255, 255, 255, 0.2) ,rgba(255, 255, 255, 0.1),  rgba(255, 255, 255, 0.1));
+.formSection {
+  background: linear-gradient(
+    30deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1)
+  );
   border: solid 1px rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
 }
 
-
-
-
-
-
+.downMenu {
+  animation-name: downMenuanimation;
+  animation-duration: 1s;
+  overflow: hidden;
+}
+@keyframes downMenuanimation {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 200px;
+  }
+}

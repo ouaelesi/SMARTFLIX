@@ -19,7 +19,7 @@ export default function Home() {
       <main className=''>
           <HeroSection/>
           <StepsSection/>
-          <RatingSwiper/>
+          {/* <RatingSwiper/> */}
           <Footer/>
       </main>
     </>

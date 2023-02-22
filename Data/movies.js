@@ -55,17 +55,6 @@ export const movies = [
     cardPhoto: "avatar.jpg",
   },
   {
-    id: 0,
-    name: "Dune",
-    description:
-      "Arthur Fleck, un comédien affligé par des troubles mentaux, se voit mis de côté par la société. S'amorce ensuite une descente aux",
-    rating: 5,
-    lenght: "3h 50min",
-    year: "2019",
-    coverPhoto: "joker.png",
-    cardPhoto: "dune.jpg",
-  },
-  {
     id : 0 , 
     name : "1917" , 
     description : "Arthur Fleck, un comédien affligé par des troubles mentaux, se voit mis de côté par la société. S'amorce ensuite une descente aux" , 
@@ -75,33 +64,5 @@ export const movies = [
     coverPhoto : "joker.png" , 
     cardPhoto :"1917.jpg" , 
    },
-   {
-    id : 0 , 
-    name : "Joker" , 
-    description : "Arthur Fleck, un comédien affligé par des troubles mentaux, se voit mis de côté par la société. S'amorce ensuite une descente aux" , 
-    rating : 5 , 
-    lenght : "3h 50min" , 
-    year : '2019' , 
-    coverPhoto : "joker.png" , 
-    cardPhoto :"joker.png" , 
-   }, {
-    id : 0 , 
-    name : "Joker" , 
-    description : "Arthur Fleck, un comédien affligé par des troubles mentaux, se voit mis de côté par la société. S'amorce ensuite une descente aux" , 
-    rating : 5 , 
-    lenght : "3h 50min" , 
-    year : '2019' , 
-    coverPhoto : "joker.png" , 
-    cardPhoto :"joker.png" , 
-   },
-   {
-    id : 0 , 
-    name : "1917" , 
-    description : "Arthur Fleck, un comédien affligé par des troubles mentaux, se voit mis de côté par la société. S'amorce ensuite une descente aux" , 
-    rating : 5 , 
-    lenght : "3h 50min" , 
-    year : '2019' , 
-    coverPhoto : "joker.png" , 
-    cardPhoto :"1917.jpg" , 
-   }
+ 
 ];
