@@ -29,7 +29,7 @@ const NavBar = () => {
         <div>
           <Image
             src="/logos/whiteLogo.png"
-            width={150}
+            width={200}
             height="100"
             alt="exaview logo"
           ></Image>

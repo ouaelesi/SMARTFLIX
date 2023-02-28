@@ -1,29 +1,20 @@
 import React from "react";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-interface Props {
-  movieData: {
-    name: String;
-    rating: Number;
-    duration: String;
-    type: String;
-    year: String;
-    description: String;
-  };
-}
-const MovieInfos: React.FC<Props> = ({ movieData }) => {
+
+const MovieInfos: React.FC<any> = ({ movieData }) => {
   return (
-    <div className="bg-gradient-to-t from-[rgba(0,0,0,1)] via-[rgba(0,0,0,.0)] to-transparent  relative w-full h-full">
-      <div className="md:pt-64 xl:px-32 lg:px-16 md:px-10 pt-40 px-5 bg-gradient-to-br w-full h-full   from-[rgba(0,0,0,.7)] to-transparent relative ">
+    <div className="bg-gradient-to-t from-[rgba(0,0,0,1)] via-[rgba(0,0,0,.4)] to-transparent  relative w-full h-full">
+      <div className="md:pt-64 xl:px-32 lg:px-16 md:px-10 pt-40 px-5 bg-gradient-to-br w-full h-full   from-[rgba(0,0,0,.8)] to-transparent relative ">
         <div>
-          <p className=" text-4xl pt-32 font-medium">{movieData.name}</p>
+          <p className=" md:text-4xl text-2xl md:pt-48 pt-32 font-medium">{movieData.original_title}</p>
           <div className="flex gap-4 md:text-sm text-xs py-3 ">
             <div className="flex gap-1">
-              <>{movieData.rating}</>/10
+              <>{movieData.vote_average}</>/10
               <FontAwesomeIcon icon={faStar} width="18" color="yellow" />
             </div>
             <div className="flex gap-2">
-              {movieData.duration}{" "}
+              {movieData.runtime  } min
               <div className="w-2 h-2 rounded-xl bg-white mt-2 "></div>
             </div>
             <div className="flex gap-2">
@@ -31,17 +22,12 @@ const MovieInfos: React.FC<Props> = ({ movieData }) => {
               <div className="w-2 h-2 rounded-xl bg-white mt-2 "></div>
             </div>
 
-            <div>{movieData.year}</div>
+            <div>{movieData.genres?.map((elem:any , key:Number)=><span key={elem.id}>{elem.name}, </span>)}</div>
           </div>
-          <p className="md:text-sm text-xs md:w-9/12">
-            {movieData.description}
+          <p className="md:text-sm text-xs md:w-9/12 text-gray-300">
+            {movieData.overview}
           </p>
-          <div className=" mt-5 dragBar w-64 h-1 bg-red-50 rounded-md relative">
-            <div className="toDrag w-fit absolute -top-1">
-              <div className="dragCircle  bg-white rounded-full w-3 h-3 "></div>
-              <div className="text-xs">8.1</div>
-            </div>
-          </div>
+        
           <div className="py-10 flex gap-4 text-xs md:text-lg">
             <button className="btn-yellow font-semibold ">
               Add to my List

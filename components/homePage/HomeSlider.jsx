@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -12,22 +12,29 @@ import {
   faArrowRotateBack,
 } from "@fortawesome/free-solid-svg-icons";
 
-import { movies } from "../../Data/movies";
 import MovieCard from "./MovieCard";
 
-const HomeSlider = () => {
-  const [isLoading, setLoading] = useState(false);
+import axios from "axios";
 
-  // generate suggesstions function
-  const generateSuggestions = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  };
+const HomeSlider = ({type , text}) => {
+  const [movies, setMovies] = useState(null);
+  useEffect(() => {
+    if (!movies) {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/${type}?api_key=2231d34a44dda0d3b0b7670043c00cb6&language=en-US`
+        )
+        .then((res) => {
+          setMovies(res.data.results);
+          setLoading(false);
+          console.log(res.data.results)
+        });
+    }
+  });
+  const [isLoading, setLoading] = useState(true);
 
   // if it's loading data display the loading spin
-  if (isLoading) {
+  if (isLoading || !movies) {
     return (
       <div className="text-white relative w-fit mx-auto py-10">
         <FontAwesomeIcon
@@ -43,13 +50,7 @@ const HomeSlider = () => {
   return (
     <div className="ml-5">
       <div className="text-white relative flex justify-between xl:px-24 lg:px-20 md:px-10 px-5 ">
-        <div className="md:text-lg text-sm">You may like</div>
-        <div
-          className="flex gap-2 btn-border-yellow text-xs md:text-lg px-3"
-          onClick={() => generateSuggestions()}
-        >
-          Genrate more <FontAwesomeIcon icon={faArrowRotateBack} width="20" className="text-sm md:text-xl md:mt-1" />
-        </div>
+        <div className="md:text-lg text-sm">{text}</div>
       </div>
       <Swiper
         slidesPerView={2}

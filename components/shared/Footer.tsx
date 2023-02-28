@@ -36,7 +36,7 @@ const Footer = () => {
         ))}
       </div>
       <div className="pt-4 pb-2 text-center text-xs md:text-sm">
-        Copyright © 2023 TrailAI . All Rights Reserved.
+        Copyright © 2023 Ouael Sahbi . All Rights Reserved.
       </div>
     </div>
   );

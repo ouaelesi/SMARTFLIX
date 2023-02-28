@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,15 +8,29 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 import { EffectCards } from "swiper";
 
-// The movies data
-import { movies } from "@/Data/movies";
+// import axios
+import axios from "axios";
 
 const RatingSwiper = () => {
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/movie/top_rated?api_key=2231d34a44dda0d3b0b7670043c00cb6&language=en-US"
+      )
+      .then((res) => {
+        setMovies(res.data.results);
+        setLoading(false);
+      });
+  });
+
+  const [loading, setLoading] = useState(true);
+
+  const [movies, setMovies] = useState(null);
+  if (loading || !movies) return <div>Loading</div>;
   return (
     <div className="xl:px-32 lg:px-20 md:px-10 px-5">
       <div className="flex justify-between text-xs md:text-lg">
         <div>Movies Just For You</div>
-        <div>Filter Movies</div>
       </div>
       <div className="py-20">
         <Swiper
@@ -31,28 +45,16 @@ const RatingSwiper = () => {
                 <div>
                   <div className="w-48 h-[280px]  rounded-md overflow-hidden border border-gray-700">
                     <Image
-                      src={`/images/${movie.cardPhoto}`}
-                      alt={movie.name}
+                      src={`https://www.themoviedb.org/t/p/w220_and_h330_face/${movie.poster_path}`}
+                      alt={movie.original_title}
                       width="400"
                       height={500}
                       className="h-full"
                     ></Image>
                   </div>
                   <div className="mt-4 text-sm text-center">
-                    {isActive ? movie.name : ""}
+                    {isActive ? movie.original_title : ""}
                   </div>
-                  {isActive ? (
-                    <div>
-                      <div className=" mt-5 dragBar w-48 h-1 bg-red-50 rounded-md relative">
-                        <div className="toDrag w-fit absolute -top-1">
-                          <div className="dragCircle  bg-white rounded-full w-3 h-3 "></div>
-                          <div className="text-xs">8.1</div>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <></>
-                  )}
                 </div>
               )}
             </SwiperSlide>
