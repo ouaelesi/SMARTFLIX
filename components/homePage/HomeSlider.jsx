@@ -16,18 +16,18 @@ import MovieCard from "./MovieCard";
 
 import axios from "axios";
 
-const HomeSlider = ({type , text}) => {
+const HomeSlider = ({ type, text, cat }) => {
   const [movies, setMovies] = useState(null);
   useEffect(() => {
     if (!movies) {
       axios
         .get(
-          `https://api.themoviedb.org/3/movie/${type}?api_key=2231d34a44dda0d3b0b7670043c00cb6&language=en-US`
+          `https://api.themoviedb.org/3/${type}/${cat}?api_key=2231d34a44dda0d3b0b7670043c00cb6`
         )
         .then((res) => {
           setMovies(res.data.results);
           setLoading(false);
-          console.log(res.data.results)
+          console.log(res.data.results);
         });
     }
   });
@@ -85,9 +85,13 @@ const HomeSlider = ({type , text}) => {
         }}
         className="mySwiper"
       >
-        {movies.map((movie, key) => (
-          <SwiperSlide key={key}>
-            <MovieCard movie={movie} />
+        {movies.map((movie, key) => key<10 && (
+          <SwiperSlide key={movie.id} >
+            
+            <MovieCard
+              movie={movie}
+              type={type === "movie" ? "movies" : "series"}
+            />
           </SwiperSlide>
         ))}
       </Swiper>

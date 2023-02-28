@@ -39,7 +39,7 @@ const RatingSwiper = () => {
           modules={[EffectCards]}
           className="mySwiper w-48 h-96"
         >
-          {movies.map((movie, key) => (
+          {(movies as any).map((movie:any, key:number) => (
             <SwiperSlide key={key} className="">
               {({ isActive }) => (
                 <div>

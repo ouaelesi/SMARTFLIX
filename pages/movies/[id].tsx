@@ -41,19 +41,21 @@ const SignleMovie = () => {
           `https://api.themoviedb.org/3/movie/${id}/videos?api_key=2231d34a44dda0d3b0b7670043c00cb6&include_video_language=en`
         )
         .then((res) => {
-          setTrailer(res.data.results[0].key)
-          console.log(res.data.results);
+          setTrailer(res.data.results[0].key);
         })
         .catch((err) => console.log(err));
     }
+
+ 
   });
-  if (loading) return <div className="w-full h-screen"></div>;
+  if (loading || !movie) return <div className="w-full h-screen"></div>;
   return (
     <div>
       <MovieContainer
-        PhoneImage={movie.poster_path}
-        coverImage={movie.backdrop_path}
+        PhoneImage={(movie as any).poster_path}
+        coverImage={(movie as any).backdrop_path}
         movieData={movie}
+        type="movie"
       />
 
       <TrailerSection videoId={TrailerKey} />

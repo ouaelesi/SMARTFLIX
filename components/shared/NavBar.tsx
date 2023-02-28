@@ -1,8 +1,13 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 const NavBar = () => {
+  const router = useRouter();
   const [activePage, setActivePage] = useState(0);
+
   const pages = [
     {
       name: "Home",
@@ -21,6 +26,13 @@ const NavBar = () => {
       href: "/about",
     },
   ];
+
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const searchMovie = () => {
+    const query = searchInputRef.current?.value;
+    router.push(`/search/${query}`);
+  };
   const [menueActive, setActive] = useState(false);
   return (
     <div className="absolute w-full z-50">
@@ -39,20 +51,37 @@ const NavBar = () => {
             <Link
               href={elem.href}
               key={key}
-              className={`xl:ml-20 lg:ml-18 md:ml-10 pt-2 ${
-                activePage == key ? "text-primColor font-semibold" : ""
+              className={`xl:ml-20 lg:ml-18 md:ml-10 pt-2 hover:text-primColor ${
+                router.pathname == elem.href
+                  ? "text-primColor font-semibold"
+                  : ""
               }`}
               onClick={() => setActivePage(key)}
             >
               {elem.name}
-              {activePage == key ? (
+              {router.pathname == elem.href ? (
                 <div className="py-1 w-fit px-1 mx-auto  bg-primColor rounded-lg"></div>
               ) : (
                 <></>
               )}
             </Link>
           ))}
-          <div className="ml-20 ">
+          <form
+            className="bg-[rgba(0,0,0,.2)]  flex  border border-gray-700  rounded-xl py-2 ml-5 "
+            action="#" onSubmit={searchMovie}
+          >
+            <input
+              ref={searchInputRef}
+              className="bg-transparent outline-none  px-2"
+            />
+            <FontAwesomeIcon
+              icon={faSearch}
+              width="25"
+              className="text-2xl text-primColor mx-2"
+              onClick={searchMovie}
+            />
+          </form>
+          <div className="ml-5 ">
             <Link href="/singup">
               <button className="btn-yellow">Sign Up</button>
             </Link>

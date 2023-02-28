@@ -1,15 +1,18 @@
 import React from "react";
 import Image from "next/image";
 import MovieInfos from "./MovieInfos";
+import SerieInfos from "./SerieInfos";
 interface Props {
   coverImage: string;
   PhoneImage: String;
   movieData: any;
+  type:String; 
 }
 const MovieContainer: React.FC<Props> = ({
   coverImage,
   PhoneImage,
   movieData,
+  type
 }) => {
   return (
     <div className="w-full relative h-screen overflow-y-hidden">
@@ -27,7 +30,10 @@ const MovieContainer: React.FC<Props> = ({
         width={1000}
         height="1000"
       />
-      <MovieInfos movieData={movieData} />
+      {
+        type=='movie' ? <MovieInfos movieData={movieData} /> : <SerieInfos movieData={movieData}/>
+      }
+     
     </div>
   );
 };

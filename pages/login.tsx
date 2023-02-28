@@ -3,7 +3,7 @@ import FormContainer from "@/components/loginPage/FormContainer";
 import NavBar from "@/components/shared/NavBar";
 
 
-const login = () => {
+const Login = () => {
     return (
         <div>
            <FormContainer/>
@@ -11,4 +11,4 @@ const login = () => {
     );
 };
 
-export default login;
+export default Login;
