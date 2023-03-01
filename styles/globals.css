@@ -91,3 +91,7 @@
   background: #E4CE01; 
   border-radius: 10px;
 }
+
+.userIcon:hover .userEmail{
+  display: block;
+}

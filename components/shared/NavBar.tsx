@@ -3,11 +3,17 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faUser,
+  faArrowAltCircleRight,
+  faRightFromBracket,
+} from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "@/context/AuthContext";
 const NavBar = () => {
   const router = useRouter();
   const [activePage, setActivePage] = useState(0);
-
+  const { user, logout } = useAuth();
   const pages = [
     {
       name: "Home",
@@ -68,7 +74,8 @@ const NavBar = () => {
           ))}
           <form
             className="bg-[rgba(0,0,0,.2)]  flex  border border-gray-700  rounded-xl py-2 ml-5 "
-            action="#" onSubmit={searchMovie}
+            action="#"
+            onSubmit={searchMovie}
           >
             <input
               ref={searchInputRef}
@@ -82,9 +89,31 @@ const NavBar = () => {
             />
           </form>
           <div className="ml-5 ">
-            <Link href="/singup">
-              <button className="btn-yellow">Sign Up</button>
-            </Link>
+            {!user ? (
+              <Link href="/singup">
+                <button className="btn-yellow">Sign Up</button>
+              </Link>
+            ) : (
+              <div className="flex">
+                <div className="py-1 relative rounded-full border text-gray-400 border-gray-700 mt-1 userIcon cursor-pointer">
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    width="20"
+                    className="text-2xl  mx-2"
+                    onClick={searchMovie}
+                  />
+                  <div className="absolute text-xs bg-gray-900 px-2 py-1 rounded-xl text-primColor font-thin userEmail hidden -bottom-5 -left-8 border border-gray-700" > {user.email}</div>
+                </div> 
+                <div className="py-1 rounded-full border text-yellow-400 hover:-mr-2 hover:ml-2 border-gray-700 mt-1">
+                  <FontAwesomeIcon
+                    onClick={logout}
+                    icon={faRightFromBracket}
+                    width="22"
+                    className="text-2xl  mx-2 cursor-pointer"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

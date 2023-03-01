@@ -32,7 +32,7 @@ const StepsSection: React.FC = () => {
       </div>
       <div className="md:flex justify-between gap-28 ">
         {Steps.map((step, key) => (
-          <div className=" md:w-1/3 mt-5 md:mt-20" key={key}>
+          <div className=" md:w-1/3 mt-5 md:mt-20 border rounded-xl p-5 bg-[rgba(50,50,50,.2)] cursor-pointer border-gray-800" key={key}>
             <FontAwesomeIcon icon={step.icon} width="28" />
             <p className="font-bold text-xl mt-2 ">{step.title}</p>
             <p className="md:text-sm text-xs mt-3">{step.description}</p>
