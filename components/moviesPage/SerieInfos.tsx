@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SerieInfos: React.FC<any> = ({ movieData }) => {
     return (
-      <div className="bg-gradient-to-t from-[rgba(0,0,0,1)] via-[rgba(0,0,0,.4)] to-transparent  relative w-full h-full">
-        <div className="md:pt-64 xl:px-32 lg:px-16 md:px-10 pt-40 px-5 bg-gradient-to-br w-full h-full   from-[rgba(0,0,0,.8)] to-transparent relative ">
+      <div className="bg-gradient-to-t from-[rgba(0,0,0,1)] md:via-[rgba(0,0,0,.4)] via-[rgba(0,0,0,.8)] to-transparent  relative w-full h-full">
+        <div className="md:pt-64 xl:px-32 lg:px-16 md:px-10 pt-28 px-5 bg-gradient-to-br w-full h-full   from-[rgba(0,0,0,.8)] to-transparent relative ">
           <div>
             <p className=" md:text-4xl text-2xl md:pt-48 pt-32 font-medium">{movieData.name}</p>
             <div className="flex gap-4 md:text-sm text-xs py-3 ">

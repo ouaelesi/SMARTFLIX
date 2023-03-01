@@ -15,7 +15,7 @@ const MovieContainer: React.FC<Props> = ({
   type
 }) => {
   return (
-    <div className="w-full relative h-screen overflow-y-hidden">
+    <div className="w-full relative md:h-screen h-[600px] overflow-y-hidden">
       <Image
         src={`https://www.themoviedb.org/t/p/original/${coverImage}`}
         alt="home background"

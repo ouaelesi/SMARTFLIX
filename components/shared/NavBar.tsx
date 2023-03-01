@@ -102,8 +102,11 @@ const NavBar = () => {
                     className="text-2xl  mx-2"
                     onClick={searchMovie}
                   />
-                  <div className="absolute text-xs bg-gray-900 px-2 py-1 rounded-xl text-primColor font-thin userEmail hidden -bottom-5 -left-8 border border-gray-700" > {user.email}</div>
-                </div> 
+                  <div className="absolute text-xs bg-gray-900 px-2 py-1 rounded-xl text-primColor font-thin userEmail hidden -bottom-5 -left-8 border border-gray-700">
+                    {" "}
+                    {user.email}
+                  </div>
+                </div>
                 <div className="py-1 rounded-full border text-yellow-400 hover:-mr-2 hover:ml-2 border-gray-700 mt-1">
                   <FontAwesomeIcon
                     onClick={logout}
@@ -121,7 +124,7 @@ const NavBar = () => {
       {/* Phone menue */}
       <div
         className={`md:hidden justify-between px-5 py-5 flex ${
-          menueActive ? "bg-[rgba(0,0,0,.5)]" : ""
+          menueActive ? "bg-[rgba(0,0,0,.7)]" : ""
         }`}
       >
         <div>
@@ -143,7 +146,7 @@ const NavBar = () => {
         </div>
       </div>
       {menueActive ? (
-        <div className="block md:hidden bg-[rgba(0,0,0,.5)] pb-4 downMenu">
+        <div className="block md:hidden bg-[rgba(0,0,0,.7)] pb-4 downMenu">
           {pages.map((elem, key) => (
             <Link
               href={elem.href}
@@ -165,10 +168,34 @@ const NavBar = () => {
             </Link>
           ))}
           <div className="mx-auto mt-5 w-fit block text-xs">
-            <Link href="/signup">
-              {" "}
-              <button className="btn-yellow"> Sign Up</button>
-            </Link>
+            {!user ? (
+              <Link href="/singup">
+                <button className="btn-yellow">Sign Up</button>
+              </Link>
+            ) : (
+              <div className="flex">
+                <div className="py-1 relative rounded-full bg-[rgba(0,0,0,.7)] border text-gray-400 border-gray-700 mt-1 userIcon cursor-pointer">
+                  <FontAwesomeIcon
+                    icon={faUser}
+                    width="20"
+                    className="text-2xl  mx-2"
+                    onClick={searchMovie}
+                  />
+                  <div className="absolute text-xs bg-gray-900 px-2 py-1 rounded-xl text-primColor font-thin userEmail hidden -bottom-5 -left-8 border border-gray-700">
+                    {" "}
+                    {user.email}
+                  </div>
+                </div>
+                <div className="py-1 rounded-full border bg-[rgba(0,0,0,.7)] text-yellow-400 hover:-mr-2 hover:ml-2 border-gray-700 mt-1">
+                  <FontAwesomeIcon
+                    onClick={logout}
+                    icon={faRightFromBracket}
+                    width="22"
+                    className="text-2xl  mx-2 cursor-pointer"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       ) : (

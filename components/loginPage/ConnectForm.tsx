@@ -14,15 +14,15 @@ const ConnectForm = () => {
     email: "",
     password: "",
   });
+  const [errMessage, setErrMess] = useState<any>(null);
+
   const handleLogin = async (e: any) => {
     e.preventDefault();
-
-    console.log(user);
     try {
       await login(data.email, data.password);
       router.push("/");
     } catch (err) {
-      console.log(err);
+      setErrMess((err as { message: String }).message);
     }
   };
   return (
@@ -35,8 +35,19 @@ const ConnectForm = () => {
           </div>
         </div>
       </div>
-
-      <form className="mt-5 py-6 px-5 bg-gray-200 rounded-md border formSection" onSubmit={handleLogin}>
+      {errMessage ? (
+        <div className="rounded-md">
+          <div className=" px-3 justify-between bg-red-600  rounded-md py-2 my-2 border border-red-400  cursor-pointer hover:bg-opacity-70 ">
+            <div>{errMessage}</div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+      <form
+        className="mt-5 py-6 px-5 bg-gray-200 rounded-md border formSection"
+        onSubmit={handleLogin}
+      >
         <Image
           src="/logos/whiteLogo.png"
           width={120}
@@ -50,26 +61,29 @@ const ConnectForm = () => {
           <input
             className="bg-transparent outline-none"
             placeholder="Email"
-            onChange={(e: any) =>
+            onChange={(e: any) => {
               setData({
                 ...data,
                 email: e.target.value,
-              })
-            }
+              });
+              setErrMess(null);
+            }}
             value={data.email}
           />
           <FontAwesomeIcon icon={faEnvelope} width="20" />
         </div>
         <div className="flex justify-between border-b  border-gray-400 py-1  my-4">
           <input
+          type='password'
             className="bg-transparent outline-none"
             placeholder="Password"
-            onChange={(e: any) =>
+            onChange={(e: any) => {
               setData({
                 ...data,
                 password: e.target.value,
-              })
-            }
+              });
+              setErrMess(null);
+            }}
             value={data.password}
           />
           <FontAwesomeIcon icon={faLock} width="20" />
@@ -81,7 +95,9 @@ const ConnectForm = () => {
           </Link>
         </div>
         <div className="flex justify-between  py-1  mt-8">
-          <button className="btn-yellow w-full font-semibold" type="submit">Log In</button>
+          <button className="btn-yellow w-full font-semibold" type="submit">
+            Log In
+          </button>
         </div>
       </form>
     </div>

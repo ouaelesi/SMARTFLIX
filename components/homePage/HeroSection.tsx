@@ -18,7 +18,7 @@ const HeroSection = () => {
         width={1000}
         height="1000"
       />
-      <div className="md:w-1/2 relative xl:px-28 lg:px-10 md:px-10 md:pt-64 md:pb-52 md:py-40 pt-40  px-5">
+      <div className="md:w-1/2 relative xl:px-28 lg:px-10 md:px-10 md:pt-64 md:pb-52 pb-32 md:py-40 pt-40  px-5">
         <div className="xl:text-5xl lg:text-5xl text-2xl md:text-4xl font-bold mb-4">
           Unlimited Movies, <br /> TV Shows, and More
         </div>

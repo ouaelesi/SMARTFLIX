@@ -8,9 +8,10 @@ import { useAuth } from "@/context/AuthContext";
 import { Router, useRouter } from "next/router";
 
 const SignInForm = () => {
-  const router = useRouter() ; 
+  const router = useRouter();
   const { user, signup } = useAuth();
-  console.log("ths is the user " , user);
+  const [errMessage, setErrMess] = useState<any>(null);
+
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -18,12 +19,12 @@ const SignInForm = () => {
 
   const handleSignup = async (e: any) => {
     e.preventDefault();
-    
+
     try {
-      await signup(data.email, data.password).then(()=>router.push('/'));
+      await signup(data.email, data.password).then(() => router.push("/"));
     } catch (err) {
-      console.log(err);
-    } 
+      setErrMess((err as { message: String }).message);
+    }
   };
   return (
     <form
@@ -38,6 +39,15 @@ const SignInForm = () => {
           </div>
         </div>
       </div>
+      {errMessage ? (
+        <div className="rounded-md">
+          <div className=" px-3 justify-between bg-red-600  rounded-md py-2 my-2 border border-red-400  cursor-pointer hover:bg-opacity-70 ">
+            <div>{errMessage}</div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
 
       <div className="mt-5 py-6 px-5 bg-gray-200 rounded-md border formSection">
         <Image
@@ -55,12 +65,13 @@ const SignInForm = () => {
             type="email"
             placeholder="Enter email"
             required
-            onChange={(e: any) =>
+            onChange={(e: any) => {
               setData({
                 ...data,
                 email: e.target.value,
-              })
-            }
+              });
+              setErrMess(null);
+            }}
             value={data.email}
           />
           <FontAwesomeIcon icon={faEnvelope} width="20" />
@@ -71,12 +82,13 @@ const SignInForm = () => {
             type="password"
             placeholder="Password"
             required
-            onChange={(e: any) =>
+            onChange={(e: any) => {
               setData({
                 ...data,
                 password: e.target.value,
-              })
-            }
+              });
+              setErrMess(null);
+            }}
             value={data.password}
           />
           <FontAwesomeIcon icon={faLock} width="20" />
@@ -88,7 +100,10 @@ const SignInForm = () => {
           </Link>
         </div>
         <div className="flex justify-between  py-1  mt-8">
-          <button className="btn-yellow w-full font-semibold" type="submit"> Sign Up</button>
+          <button className="btn-yellow w-full font-semibold" type="submit">
+            {" "}
+            Sign Up
+          </button>
         </div>
       </div>
     </form>
