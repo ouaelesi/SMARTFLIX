@@ -5,6 +5,8 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+
+/* Some tailwind styling  */
 @layer components {
   body {
     @apply bg-darkBg text-white;
@@ -16,6 +18,8 @@
     @apply border-2 border-primColor text-primColor px-7 py-2 rounded-md  cursor-pointer hover:bg-yellow-300  hover:text-black;
   }
 }
+
+
 .text-2xs {
   font-size: 9px;
 }
@@ -76,6 +80,7 @@
   }
 }
 
+/* ScrollBar Styling */
 ::-webkit-scrollbar {
   width: 10px;
 }

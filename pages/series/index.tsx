@@ -9,6 +9,7 @@ const Series = () => {
   const [Tvshow, setTV] = useState(null);
   const types = ["popular", "top_rated"];
   useEffect(() => {
+    // get a random Tv show 
     if (!Tvshow) {
       const type = types[Math.floor(Math.random() * (types.length - 0) + 0)];
       console.log(type);
